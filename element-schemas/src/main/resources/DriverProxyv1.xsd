@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://driver.wrightexpress.com/DriverManagement/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://driver.wrightexpress.com/DriverManagement/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://driver.wrightexpress.com/DriverManagement/" version="1.0">
+      <xsd:element name="AddRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverPromptRecordType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AddResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverResponseType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="PingRequest" type="xs:string"/>
+      <xsd:element name="PingResponse" type="xs:string"/>
+       <xsd:element name="SearchRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverSearchRequestType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+       <xsd:element name="SearchResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverSearchResponseType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverPromptRecordType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverResponseType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateStatusRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverStatusType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="UpdateStatusResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Driver" type="tns:DriverStatusType"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WexGeneralFault" type="xs:string"/>
+      <xsd:complexType name="DriverPromptRecordType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Status" type="tns:PromptStatusType"/>
+          <xsd:element name="AccountNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="Department" type="xs:string"/>
+          <xsd:element minOccurs="0" name="HierId" type="xs:string"/>
+          <xsd:element name="DriverDetails" type="tns:DriverDetailsType"/>
+          <xsd:element minOccurs="0" name="TotalDriversFound" type="xs:int"/>
+          <xsd:element minOccurs="0" name="RequestedBy" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CompanyDriverID" type="xs:string"/>
+          <xsd:element name="DriverPersonalInfo" type="tns:PersonalInfoType"/>
+          <xsd:element minOccurs="0" name="JobTitle" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EmployeeNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="DriverLicenseDetails" type="tns:DriverLicenseDetailsType"/>
+          <xsd:element minOccurs="0" name="StatusChangeDate" type="xs:anySimpleType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PersonalInfoType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FirstName" type="xs:string"/>
+          <xsd:element name="LastName" type="xs:string"/>
+          <xsd:element minOccurs="0" name="MiddleInitial" type="xs:string"/>
+          <xsd:element minOccurs="0" name="Title" type="tns:TitleType"/>
+          <xsd:element minOccurs="0" name="PhoneNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CellPhoneNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="FaxNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EmailAddress" type="xs:string"/>
+          <xsd:element minOccurs="0" name="PreferredCommunication" type="tns:PreferredComType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverLicenseDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="DriverLicenseNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="DriverLicenseState" type="xs:string"/>
+          <xsd:element minOccurs="0" name="DriverLicenseCountry" type="xs:string"/>
+          <xsd:element minOccurs="0" name="DriverLicenseExpirationDate" type="xs:anySimpleType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverResponseType">
+        <xsd:sequence>
+          <xsd:element name="AccountNumber" type="xs:string"/>
+          <xsd:element name="CompanyDriverID" type="xs:string"/>
+          <xsd:element name="Status" type="tns:PromptStatusType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverSearchRequestType">
+        <xsd:sequence>
+          <xsd:element name="driver">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="AccountNumber" type="xs:string"/>
+                <xsd:element minOccurs="0" name="FirstName" type="xs:string"/>
+                <xsd:element minOccurs="0" name="LastName" type="xs:string"/>
+                <xsd:element minOccurs="0" name="CompanyDriverID" type="xs:string"/>
+                <xsd:element minOccurs="0" name="Status" type="tns:PromptStatusType"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element default="1" minOccurs="0" name="StartPage" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverSearchResponseType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="TotalPages" type="xs:int"/>
+          <xsd:element minOccurs="0" name="TotalDriversFound" type="xs:long"/>
+          <xsd:element minOccurs="0" name="CurrentPageNumber" type="xs:int"/>
+          <xsd:element maxOccurs="unbounded" minOccurs="0" name="driver" nillable="true">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element minOccurs="0" name="AccountNumber" type="xs:string"/>
+                <xsd:element minOccurs="0" name="Department" type="xs:string"/>
+                <xsd:element minOccurs="0" name="FirstName" type="xs:string"/>
+                <xsd:element minOccurs="0" name="LastName" type="xs:string"/>
+                <xsd:element minOccurs="0" name="MiddleInitial" type="xs:string"/>
+                <xsd:element minOccurs="0" name="HierId" type="xs:string"/>
+                <xsd:element minOccurs="0" name="CompanyDriverID" type="xs:string"/>
+                <xsd:element minOccurs="0" name="Status" type="tns:PromptStatusType"/>
+                <xsd:element minOccurs="0" name="StatusChangeDate" type="xs:anySimpleType"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DriverStatusType">
+        <xsd:sequence>
+          <xsd:element name="AccountNumber" type="xs:string"/>
+          <xsd:element name="CompanyDriverID" type="xs:string"/>
+          <xsd:element name="Status" type="tns:PromptStatusType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AddressDetailsType">
+        <xsd:sequence>
+          <xsd:element name="FirstName" type="xs:string"/>
+          <xsd:element name="LastName" type="xs:string"/>
+          <xsd:element minOccurs="0" name="SpecialContact" type="xs:string"/>
+          <xsd:element name="AddressLine1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressLine2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AttentionLine" type="xs:string"/>
+          <xsd:element name="City" type="xs:string"/>
+          <xsd:element name="StateCode" type="xs:string"/>
+          <xsd:element name="PostalCode" type="xs:string"/>
+          <xsd:element name="CountryCode" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AddressBarCode" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CustomerAddressID" type="xs:integer"/>
+          <xsd:element minOccurs="0" name="ResidentialIndicator" type="xs:string"/>
+          <xsd:element minOccurs="0" name="EmailAddress" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AssetCardRecordType">
+        <xsd:sequence>
+          <xsd:element name="Status" type="tns:CardStatusType"/>
+          <xsd:element minOccurs="0" name="StatusReason" type="tns:CardStatusReasonType"/>
+          <xsd:element name="AccountNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AssetCardPromptId" type="xs:string"/>
+          <xsd:element minOccurs="0" name="HierId" type="xs:string"/>
+          <xsd:element name="CardDetails" type="tns:CardDetailsType"/>
+          <xsd:element name="AssetDetails" type="tns:AssetDetailsType"/>
+          <xsd:element minOccurs="0" name="RequestedBy" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CardDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CardNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="CardSuffix" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AuthProfileName" type="xs:string"/>
+          <xsd:element minOccurs="0" name="Department" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ProductRestriction" type="xs:string"/>
+          <xsd:element minOccurs="0" name="SpecialShippingAddress" type="tns:AddressDetailsType"/>
+          <xsd:element minOccurs="0" name="CustomerShippingDetails" type="tns:CustomerShippingDetailsType"/>
+          <xsd:element minOccurs="0" name="PlasticType" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ReIssueReason" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerShippingDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="ShippingCarrier" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ShippingMethod" type="tns:ShippingMethodType"/>
+          <xsd:element minOccurs="0" name="ShippingCarrierAccountNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="ShippingInstructions" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="AssetDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="CompanyAssetID" type="xs:string"/>
+          <xsd:element minOccurs="0" name="AssetDescription" type="xs:string"/>
+          <xsd:element minOccurs="0" name="VIN" type="xs:string"/>
+          <xsd:element minOccurs="0" name="LicensePlateDetails" type="tns:LicensePlateDetailsType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LicensePlateDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="LicensePlateNumber" type="xs:string"/>
+          <xsd:element minOccurs="0" name="LicensePlateState" type="xs:string"/>
+          <xsd:element minOccurs="0" name="LicensePlateCountry" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RestrictedProductType">
+        <xsd:sequence>
+          <xsd:element name="Action" type="tns:SimpleActionType"/>
+          <xsd:element name="ProductCode" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="UserDefinedDetailsType">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="UserDefinedField1" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField2" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField3" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField4" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField5" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField6" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField7" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField8" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField9" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField10" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField11" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField12" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField13" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField14" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField15" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField16" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField17" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField18" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField19" type="xs:string"/>
+          <xsd:element minOccurs="0" name="UserDefinedField20" type="xs:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RestrictedProductsType">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="RestrictedProduct" type="tns:RestrictedProductType"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CustomerInformationType">
+        <xsd:sequence>
+          <xsd:element name="CustomerID" type="xs:string"/>
+          <xsd:element name="IgnoreSequenceFlag" type="xs:boolean"/>
+          <xsd:element name="CustomerFileSequenceNumber" type="xs:int"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="PromptStatusType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Active"/>
+          <xsd:enumeration value="Terminated"/>
+          <xsd:enumeration value=""/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="TitleType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Mr."/>
+          <xsd:enumeration value="Mrs."/>
+          <xsd:enumeration value="Ms."/>
+          <xsd:enumeration value="Miss."/>
+          <xsd:enumeration value="Dr."/>
+          <xsd:enumeration value="Rev."/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PreferredComType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Cell Phone"/>
+          <xsd:enumeration value="Email"/>
+          <xsd:enumeration value="Phone"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CardStatusType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Active"/>
+          <xsd:enumeration value="Suspended"/>
+          <xsd:enumeration value="Terminated"/>
+          <xsd:enumeration value="Transfer"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CardStatusReasonType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Active"/>
+          <xsd:enumeration value="Converted"/>
+          <xsd:enumeration value="Out Of Service"/>
+          <xsd:enumeration value="Online Termination"/>
+          <xsd:enumeration value="Lost"/>
+          <xsd:enumeration value="Stolen"/>
+          <xsd:enumeration value="Fraud"/>
+          <xsd:enumeration value="Suspected Fraud"/>
+          <xsd:enumeration value="Damaged"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ShippingMethodType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="STANDARD"/>
+          <xsd:enumeration value="OVERNIGHT"/>
+          <xsd:enumeration value="SECOND_DAY"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SimpleActionType">
+        <xsd:restriction base="xs:string">
+          <xsd:enumeration value="Add"/>
+          <xsd:enumeration value="Terminate"/>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>

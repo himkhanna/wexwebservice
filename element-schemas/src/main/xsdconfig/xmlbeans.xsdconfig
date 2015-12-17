@@ -1,0 +1,10 @@
+<xb:config xmlns:xb="http://xml.apache.org/xmlbeans/2004/02/xbean/config">
+
+	<xb:namespace uri="http://driver.wrightexpress.com/DriverManagement/">
+  			<xb:package>com.element.wex.driver.generated</xb:package>
+	</xb:namespace>
+	
+	<xb:namespace uri="http://vehiclecard.wrightexpress.com/VehicleCardManagement/">
+  			<xb:package>com.element.wex.vehiclecard.generated</xb:package>
+	</xb:namespace>
+</xb:config>

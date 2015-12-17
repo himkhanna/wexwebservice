@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://driver.wrightexpress.com/DriverManagement/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" name="CWSDriverManagement" targetNamespace="http://driver.wrightexpress.com/DriverManagement/">
+  <WL5G3N0:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://driver.wrightexpress.com/DriverManagement/" schemaLocation="DriverProxyv1.xsd"/>
+    </xsd:schema>
+    </WL5G3N0:types>
+  <WL5G3N0:message name="Add">
+    <WL5G3N0:part element="WL5G3N1:AddRequest" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="AddResponse">
+    <WL5G3N0:part element="WL5G3N1:AddResponse" name="response"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="Ping">
+    <WL5G3N0:part element="WL5G3N1:PingRequest" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="WexGeneralFaultMessage">
+    <WL5G3N0:part element="WL5G3N1:WexGeneralFault" name="WexGeneralFaultMessage"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SearchResponse">
+    <WL5G3N0:part element="WL5G3N1:SearchResponse" name="response"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="PingResponse">
+    <WL5G3N0:part element="WL5G3N1:PingResponse" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="UpdateResponse">
+    <WL5G3N0:part element="WL5G3N1:UpdateResponse" name="response"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ChangeStatus">
+    <WL5G3N0:part element="WL5G3N1:UpdateStatusRequest" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="Search">
+    <WL5G3N0:part element="WL5G3N1:SearchRequest" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="ChangeStatusResponse">
+    <WL5G3N0:part element="WL5G3N1:UpdateStatusResponse" name="response"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="Update">
+    <WL5G3N0:part element="WL5G3N1:UpdateRequest" name="request"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="DriverManagement">
+    <WL5G3N0:operation name="Add">
+      <WL5G3N0:input message="WL5G3N1:Add" name="Add"/>
+      <WL5G3N0:output message="WL5G3N1:AddResponse" name="AddResponse"/>
+      <WL5G3N0:fault message="WL5G3N1:WexGeneralFaultMessage" name="WexGeneralFaultMessage"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Update">
+      <WL5G3N0:input message="WL5G3N1:Update" name="Update"/>
+      <WL5G3N0:output message="WL5G3N1:UpdateResponse" name="UpdateResponse"/>
+      <WL5G3N0:fault message="WL5G3N1:WexGeneralFaultMessage" name="WexGeneralFaultMessage"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Ping">
+      <WL5G3N0:input message="WL5G3N1:Ping" name="Ping"/>
+      <WL5G3N0:output message="WL5G3N1:PingResponse" name="PingResponse"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Search">
+      <WL5G3N0:input message="WL5G3N1:Search" name="Search"/>
+      <WL5G3N0:output message="WL5G3N1:SearchResponse" name="SearchResponse"/>
+      <WL5G3N0:fault message="WL5G3N1:WexGeneralFaultMessage" name="WexGeneralFaultMessage"/>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ChangeStatus">
+      <WL5G3N0:input message="WL5G3N1:ChangeStatus" name="ChangeStatus"/>
+      <WL5G3N0:output message="WL5G3N1:ChangeStatusResponse" name="ChangeStatusResponse"/>
+      <WL5G3N0:fault message="WL5G3N1:WexGeneralFaultMessage" name="WexGeneralFaultMessage"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="DriverManagementSoapBinding" type="WL5G3N1:DriverManagement">
+    <WL5G3N2:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="Add">
+      <WL5G3N2:operation soapAction="http://driver.wrightexpress.com/DriverManagement/Add"/>
+      <WL5G3N0:input name="Add">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="AddResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="WexGeneralFaultMessage">
+        <WL5G3N2:fault name="WexGeneralFaultMessage" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Update">
+      <WL5G3N2:operation soapAction="http://driver.wrightexpress.com/DriverManagement/Update"/>
+      <WL5G3N0:input name="Update">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="UpdateResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="WexGeneralFaultMessage">
+        <WL5G3N2:fault name="WexGeneralFaultMessage" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Ping">
+      <WL5G3N2:operation soapAction="http://driver.wrightexpress.com/DriverManagement/Ping"/>
+      <WL5G3N0:input name="Ping">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="PingResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="Search">
+      <WL5G3N2:operation soapAction="http://driver.wrightexpress.com/DriverManagement/Search"/>
+      <WL5G3N0:input name="Search">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="SearchResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="WexGeneralFaultMessage">
+        <WL5G3N2:fault name="WexGeneralFaultMessage" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="ChangeStatus">
+      <WL5G3N2:operation soapAction="http://driver.wrightexpress.com/DriverManagement/ChangeStatus"/>
+      <WL5G3N0:input name="ChangeStatus">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output name="ChangeStatusResponse">
+        <WL5G3N2:body use="literal"/>
+      </WL5G3N0:output>
+      <WL5G3N0:fault name="WexGeneralFaultMessage">
+        <WL5G3N2:fault name="WexGeneralFaultMessage" use="literal"/>
+      </WL5G3N0:fault>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="CWSDriverManagement">
+    <WL5G3N0:port binding="WL5G3N1:DriverManagementSoapBinding" name="DriverManagementSOAP">
+      <WL5G3N2:address location="https://webservices-xc.wexinc.com/EWSDriverProject/ProxyServices/DriverProxyv1"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>
