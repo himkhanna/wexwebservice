@@ -12,12 +12,13 @@ import org.springframework.ws.transport.http.HttpComponentsMessageSender;
 
 import com.wrightexpress.driver.drivermanagement.DriverResponseType;
 import com.wrightexpress.driver.drivermanagement.DriverSearchRequestType;
+import com.wrightexpress.driver.drivermanagement.SearchRequest;
 
 public class WEXWebserviceDaoImpl extends WebServiceGatewaySupport implements WEXWebserviceDao {
 
 	public String searchDriverPin(DriverSearchRequestType driverSearchRequestType) {
-	//	SearchReques searchRequest = new SearchRequest();
-		//searchRequest.setDriver(driverSearchRequestType);
+		SearchRequest searchRequest = new SearchRequest();
+		searchRequest.setDriver(driverSearchRequestType);
 		//System.setProperty("javax.net.ssl.trustStore", "C:\\Program Files\\Java\\jdk1.8.0_65\\jre\\lib\\security\\cacerts");
 		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
 		marshaller.setContextPath("com.wrightexpress.driver.drivermanagement");

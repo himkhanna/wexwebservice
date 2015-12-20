@@ -16,7 +16,7 @@
       </xsd:element>
       <xsd:element name="PingRequest" type="xs:string"/>
       <xsd:element name="PingResponse" type="xs:string"/>
-       <xsd:element name="SearchRequest">
+       <!-- <xsd:element name="SearchRequest">
         <xsd:complexType>
           <xsd:sequence>
             <xsd:element name="Driver" type="tns:DriverSearchRequestType"/>
@@ -29,7 +29,9 @@
             <xsd:element name="Driver" type="tns:DriverSearchResponseType"/>
           </xsd:sequence>
         </xsd:complexType>
-      </xsd:element>
+      </xsd:element> -->
+      <xsd:element name="SearchRequest" type="tns:DriverSearchRequestType"/>
+	  <xsd:element name="SearchResponse" type="tns:DriverSearchResponseType"/>
       <xsd:element name="UpdateRequest">
         <xsd:complexType>
           <xsd:sequence>

@@ -1,37 +1,32 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+ <modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.element.wex</groupId>
-	<artifactId>element-wex-schemas</artifactId>
-	<version>0.0.1.BUILD-SNAPSHOT</version>
-	<packaging>jar</packaging>
-	<name>Wex WebService Schemas</name>
-<build>
-<plugins>
-<plugin>
-	<groupId>org.jvnet.jaxb2.maven2</groupId>
-	<artifactId>maven-jaxb2-plugin</artifactId>
-	<version>0.8.2</version>
-	<executions>
-		<execution>
-			<id>generate-policy-document</id>
-			<phase>generate-sources</phase>
-			<goals>
-				<goal>generate</goal>
-			</goals>
-			<configuration>
-				<removeOldOutput>false</removeOldOutput>
-				<clearOutputDir>false</clearOutputDir>
-				<forceRegenerate>true</forceRegenerate>
-				<schemaIncludes>
-					<!-- <include>CardProxyv1.xsd</include> -->
-					<include>DriverProxyv1.wsdl</include>
-				</schemaIncludes>
-			</configuration>
-		</execution>
-	</executions>
-</plugin>  
-</plugins>
-</build>
+ <groupId>com.element.wex</groupId>
+ <artifactId>element-wex-schemas</artifactId>
+ <version>0.0.1.BUILD-SNAPSHOT</version>
+ <packaging>jar</packaging>
+ <name>Wex WebService Schemas</name>
+ <build>
+  <plugins>
+   <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>jaxb2-maven-plugin</artifactId>
+    <version>1.6</version>
+    <executions>
+     <execution>
+      <id>xjc</id>
+      <goals>
+       <goal>xjc</goal>
+      </goals>
+     </execution>
+    </executions>
+    <configuration>
+     <schemaDirectory>src/main/resources</schemaDirectory>
+     <bindingFiles>binding.xjb</bindingFiles>
+     <extension>true</extension>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>
 </project>
